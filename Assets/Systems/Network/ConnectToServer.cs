@@ -10,7 +10,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
     public event Action OnNetworkConnectedEvent;
     public event Action OnConnectedToLobbyEvent;
 
-    void Start()
+    public void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
     }

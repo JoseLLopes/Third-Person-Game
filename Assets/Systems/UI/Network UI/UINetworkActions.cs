@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using ThirdPersonGame.NetworkSystem;
 
 namespace ThirdPersonGame.UI{
     public class UINetworkActions : MonoBehaviour
     {
-        [SerializeField] CreateAndJoinRoom createAndJoinRoom;
-        [SerializeField] ConnectToServer connectToServer;
+        [SerializeField] NetworkManager networkManager;
 
         [Header("String Messages")]
         [SerializeField] TMP_Text messageText;
@@ -19,8 +19,9 @@ namespace ThirdPersonGame.UI{
         [SerializeField] GameObject LoadingPanel;
 
         private void Start() {
-            connectToServer.OnNetworkConnectedEvent += HandleConnectedToServer;
-            connectToServer.OnConnectedToLobbyEvent += HandleConnectedToLobby;
+            networkManager.OnNetworkConnectedEvent += HandleConnectedToServer;
+            networkManager.OnConnectedToLobbyEvent += HandleConnectedToLobby;
+
             messageText.text = ConnectingToServerMessage;
         }
 

@@ -8,10 +8,9 @@ namespace ThirdPersonGame.InputSystem{
         PlayerInputActions inputActions;
 
         //Events
-        public event Action OnJump;
+        public event Action OnHoldJump;
         public event Action OnReleaseJump;
-
-
+        
         private void Awake() {
             inputActions = new PlayerInputActions();
             inputActions.PlayerActions.Enable();
@@ -28,8 +27,8 @@ namespace ThirdPersonGame.InputSystem{
         private void jumpPerformed(InputAction.CallbackContext context)
         {
             
-            if(OnJump != null)
-                OnJump();
+            if(OnHoldJump != null)
+                OnHoldJump();
         }
 
         //Get player input movement

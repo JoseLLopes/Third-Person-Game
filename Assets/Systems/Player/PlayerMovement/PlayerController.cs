@@ -8,8 +8,6 @@ using UnityEngine.EventSystems;
 namespace ThirdPersonGame.PlayerMovement{
     public class PlayerController : MonoBehaviour
     {
-
-        [SerializeField] Animator animator;
         Rigidbody myRigidbody;
         private PlayerInputEvents playerInputEvents;
         Camera mainCamera;
@@ -24,10 +22,6 @@ namespace ThirdPersonGame.PlayerMovement{
         [SerializeField] float jumpMaxForce;
         float currentJumpForce;
         bool isChargingJump;
-        
-        [Header("Particles")]
-        [SerializeField] GameObject jumpParticle;
-        
 
         //UTILS
         MoveDirectionCalculator MoveDirectionCalculator;
@@ -47,14 +41,14 @@ namespace ThirdPersonGame.PlayerMovement{
 
         private void Start() 
         {
-            playerInputEvents.OnJump += ChargeJump;
-            playerInputEvents.OnReleaseJump += HandleJump;
+            playerInputEvents.OnHoldJump += HandleChargeJump;
+            playerInputEvents.OnReleaseJump += HandleHoldJump;
         }
 
         private void OnDisable()
         {
-            playerInputEvents.OnJump -= ChargeJump;
-            playerInputEvents.OnReleaseJump -= HandleJump;
+            playerInputEvents.OnHoldJump -= HandleChargeJump;
+            playerInputEvents.OnReleaseJump -= HandleHoldJump;
         }
 
         private void FixedUpdate() {
@@ -91,20 +85,19 @@ namespace ThirdPersonGame.PlayerMovement{
         }
 
         //JUMP
-        private void HandleJump()
+        private void HandleHoldJump()
         {
-            animator.SetTrigger("releaseJump");
             isChargingJump = false;
             Vector3 jumpVelocity = new Vector3(0,transform.up.y,0) * currentJumpForce;
             myRigidbody.AddForce(jumpVelocity, ForceMode.VelocityChange);
-            animator.SetBool("changingJump",false);
+            
         }
 
-        private void ChargeJump()
+        private void HandleChargeJump()
         {
             isChargingJump = true;
             currentJumpForce = jumpMinForce;
-            animator.SetBool("changingJump",true);
+            
         }
 
 
