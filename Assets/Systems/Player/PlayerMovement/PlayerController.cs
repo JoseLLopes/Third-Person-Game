@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ThirdPersonGame.InputSystem;
-using System;
-using UnityEngine.EventSystems;
+using ThirdPersonGame.PlayerMovement.Utils;
 
 namespace ThirdPersonGame.PlayerMovement{
     public class PlayerController : MonoBehaviour
     {
         Rigidbody myRigidbody;
         private PlayerInputEvents playerInputEvents;
-        Camera mainCamera;
+        [HideInInspector] public Transform playerCamera;
 
 
         [Header ("Movement")]
@@ -35,7 +34,6 @@ namespace ThirdPersonGame.PlayerMovement{
             myRigidbody = GetComponent<Rigidbody>();
             playerInputEvents = GetComponent<PlayerInputEvents>();
 
-            mainCamera = Camera.main;
             
         }
 
@@ -52,7 +50,9 @@ namespace ThirdPersonGame.PlayerMovement{
         }
 
         private void FixedUpdate() {
-            
+            if(!playerCamera)
+                return;
+
             if (isChargingJump && currentJumpForce < jumpMaxForce)
             {
                 currentJumpForce = Mathf.Lerp(currentJumpForce, jumpMaxForce, Time.fixedDeltaTime * chargeSpeed);
@@ -60,7 +60,7 @@ namespace ThirdPersonGame.PlayerMovement{
             }
 
             Vector2 movementInput = playerInputEvents.GetMovementInput();
-            Vector3 moveDir = MoveDirectionCalculator.CalculateRelativeMoveDir(mainCamera.transform, movementInput);
+            Vector3 moveDir = MoveDirectionCalculator.CalculateRelativeMoveDir(playerCamera.transform, movementInput);
             
             if(movementInput != default){
                 Move(moveDir);

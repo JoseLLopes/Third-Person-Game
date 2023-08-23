@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace ThirdPersonGame.PlayerMovement.Utils{
 public class MoveDirectionCalculator
 {
 
@@ -19,4 +20,5 @@ public class MoveDirectionCalculator
         Vector3 moveDir = forwardRelative + rightRelative;
         return moveDir;
     }
+}
 }

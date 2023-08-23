@@ -6,9 +6,8 @@ namespace ThirdPersonGame.ScoreSystem{
     public class CollectorTrigger : MonoBehaviour
     {
         private void OnTriggerEnter(Collider other) {
-            if(other.transform.TryGetComponent<Collectable>(out Collectable collectable)){
-                ScoreManager.AddScore((collectable.Collect()));
-                Destroy(other.gameObject);
+            if(other.transform.TryGetComponent<ICollectable>(out ICollectable collectable)){
+                ScoreManager.Instance.AddScore(other.gameObject);
             }
         }
     }

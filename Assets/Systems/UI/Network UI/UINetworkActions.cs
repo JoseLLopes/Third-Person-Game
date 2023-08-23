@@ -21,6 +21,7 @@ namespace ThirdPersonGame.UI{
         private void Start() {
             networkManager.OnNetworkConnectedEvent += HandleConnectedToServer;
             networkManager.OnConnectedToLobbyEvent += HandleConnectedToLobby;
+            networkManager.OnStartToConnectEvent += HandleStartToConnect;
 
             messageText.text = ConnectingToServerMessage;
         }
@@ -33,6 +34,13 @@ namespace ThirdPersonGame.UI{
         private void HandleConnectedToLobby()
         {
             LoadingPanel.SetActive(false);
+        }
+
+        private void HandleStartToConnect()
+        {
+
+            LoadingPanel.SetActive(true);
+
         }
     }
 }

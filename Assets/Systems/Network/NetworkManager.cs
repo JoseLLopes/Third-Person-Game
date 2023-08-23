@@ -4,21 +4,31 @@ using Photon.Pun;
 namespace ThirdPersonGame.NetworkSystem{
     public class NetworkManager : MonoBehaviourPunCallbacks
     {
+        public event Action OnStartToConnectEvent;
         public event Action OnNetworkConnectedEvent;
         public event Action OnConnectedToLobbyEvent;
 
         //ROOM
         public event Action OnJoinedRoomEvent;
 
-        public void Start()
-        {
+        public void ConnectToServer(){
             PhotonNetwork.ConnectUsingSettings();
+            if(OnStartToConnectEvent != null)
+                OnStartToConnectEvent();
+        }
+
+        public override void OnLeftLobby(){
+            if(OnStartToConnectEvent != null)
+                OnStartToConnectEvent();
+            if(OnNetworkConnectedEvent != null)
+                OnNetworkConnectedEvent();
         }
 
         public override void OnConnectedToMaster(){
             PhotonNetwork.JoinLobby();
+            
             if(OnNetworkConnectedEvent != null)
-            OnNetworkConnectedEvent();
+                OnNetworkConnectedEvent();
         }
         public override void OnJoinedLobby(){
             if(OnConnectedToLobbyEvent != null)

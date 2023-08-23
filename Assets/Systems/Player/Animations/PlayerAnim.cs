@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using ThirdPersonGame.InputSystem;
-using ThirdPersonGame.PlayerMovement;
 using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
