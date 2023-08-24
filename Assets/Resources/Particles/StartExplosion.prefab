@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8212223800801701380}
   - component: {fileID: 4854405254026000619}
   - component: {fileID: 8294634229281491061}
+  - component: {fileID: -755638376920353183}
   m_Layer: 0
   m_Name: StartExplosion
   m_TagString: Untagged
@@ -4967,3 +4968,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-755638376920353183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8265160252408397118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ea9e2411b00c84284e829bbab01aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
