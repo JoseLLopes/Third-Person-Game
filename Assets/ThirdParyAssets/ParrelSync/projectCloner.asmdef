@@ -1,10 +1,9 @@
 {
-    "name": "ThirdPersonGame.GameplayLogic",
-    "rootNamespace": "",
-    "references": [
-        "GUID:4307f53044263cf4b835bd812fc161a4"
+    "name": "ParrelSync",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
     ],
-    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

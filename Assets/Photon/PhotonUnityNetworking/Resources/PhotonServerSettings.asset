@@ -42,6 +42,8 @@ MonoBehaviour:
   - RPC_PlayHoldJumpAnim
   - RPC_PlayReleaseJumpAnim
   - RPC_AddScore
+  - collect
+  - RPC_SpawnCollectable
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

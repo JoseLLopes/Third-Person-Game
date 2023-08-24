@@ -33,6 +33,11 @@ namespace ThirdPersonGame.ScoreSystem{
         public int GetCollectableIndex(GameObject collectableItem){
             return collectablesItemsList.IndexOf(collectableItem);
         }
+
+        public void AddCollectableToList(GameObject collectableItem){
+            if(!collectablesItemsList.Contains(collectableItem))
+                collectablesItemsList.Add(collectableItem);
+        }
     }
 }
 

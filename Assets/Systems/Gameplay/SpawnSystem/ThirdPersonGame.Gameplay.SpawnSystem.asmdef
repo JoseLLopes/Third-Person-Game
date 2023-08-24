@@ -1,0 +1,17 @@
+{
+    "name": "ThirdPersonGame.Gameplay.SpawnSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9c0f030c4776eb0469e10b2b364db838",
+        "GUID:d0b67eb318b76c844b4d8a29c9f42fea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

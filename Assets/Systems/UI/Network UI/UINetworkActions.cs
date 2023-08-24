@@ -9,7 +9,7 @@ namespace ThirdPersonGame.UI{
     public class UINetworkActions : MonoBehaviour
     {
         [SerializeField] NetworkManager networkManager;
-
+        
         [Header("String Messages")]
         [SerializeField] TMP_Text messageText;
         [SerializeField] string ConnectingToServerMessage;

@@ -16,11 +16,12 @@ namespace ThirdPersonGame.NetworkSystem.Gameplay{
         }
 
         void StartMultiplayer(){
+            gameplayController.currentGameMode = GameplayController.GAMEMODE.MULTIPLAYER;
             gameplayController.StartGame();
             PhotonNetwork.Instantiate(networkAvatar.name,Vector3.zero,networkAvatar.transform.rotation);
         }
 
-
+        
 
     }
 }
