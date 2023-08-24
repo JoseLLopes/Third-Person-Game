@@ -10,21 +10,24 @@ namespace ThirdPersonGame.NetworkSystem.Gameplay{
     public class NetworkSpawnCollectables : MonoBehaviour
     {
         [SerializeField] PhotonView photonView;
-        [SerializeField] GameplayController gameplayController;
         [Range(3,50)]
-        [SerializeField] float timeTospawn = 10;
+        [SerializeField] float timeTospawn = 5;
         [SerializeField] GameObject objectCollectable;
         [SerializeField] ScoreSpawnPointArea[] ScoreSpawnPointAreas;
 
-
+        
 
         private void Start() {
-            gameplayController.OnStartGame += StartSpawnNetwork;
+            GameplayController.Instance.OnStartGame += StartSpawnNetwork;
+        }
+
+        private void OnDisable() {
+            GameplayController.Instance.OnStartGame -= StartSpawnNetwork;
         }
 
         private void StartSpawnNetwork()
         {
-            if(gameplayController.currentGameMode == GameplayController.GAMEMODE.MULTIPLAYER){
+            if(GameplayController.Instance.currentGameMode == GameplayController.GAMEMODE.MULTIPLAYER){
                 StartCoroutine(SpawnCollectable());
             }
         }

@@ -7,7 +7,6 @@ using ThirdPersonGame.ScoreSystem;
 namespace ThirdPersonGame.Gameplay.SpawnSystem{
     public class SpawnCollectables : MonoBehaviour
     {
-        [SerializeField] GameplayController gameplayController;
         [Range(3,50)]
         [SerializeField] float timeTospawn = 10;
         [SerializeField] GameObject objectCollectable;
@@ -16,11 +15,17 @@ namespace ThirdPersonGame.Gameplay.SpawnSystem{
        
         
         private void Start() {
-            gameplayController.OnStartGame += StartSpawn;
+           GameplayController.Instance.OnStartGame += StartSpawn;
+           GameplayController.Instance.OnEndGame += StopSpawn;
+        }
+
+        private void OnDisable() {
+            GameplayController.Instance.OnStartGame -= StartSpawn;
+            GameplayController.Instance.OnEndGame -= StopSpawn;
         }
 
         void StartSpawn(){
-            if(gameplayController.currentGameMode == GameplayController.GAMEMODE.SINGLE){
+            if(GameplayController.Instance.currentGameMode == GameplayController.GAMEMODE.SINGLE){
                 StartCoroutine(SpawnCollectable());
             }
         }
@@ -40,6 +45,8 @@ namespace ThirdPersonGame.Gameplay.SpawnSystem{
             return ScoreSpawnPointAreas[randomSpawnPointIndex].GetRandomPosition();
         }
 
-        
+        void StopSpawn(){
+            StopAllCoroutines();
+        }
     }
 }

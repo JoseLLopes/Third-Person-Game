@@ -1,7 +1,11 @@
 {
     "name": "ThirdPersonGame.ScoreSystem",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:9c0f030c4776eb0469e10b2b364db838",
+        "GUID:a40d450ca65ad3c42a371e4e4b97107d",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -18,15 +18,12 @@ public class PlayfabAuthenticator: MonoBehaviour
     [SerializeField] TMP_InputField emailInputField;
     [SerializeField] TMP_InputField passwordInputField;
     [SerializeField] TMP_Text errorText;
+    [SerializeField] TMP_Text bestScoreText;
     [SerializeField] GameObject loginPanel;
     public string playfabID;
 
     //Events
     public event Action OnLogedinEvent;
-
-    private void Update() {
-        Debug.Log(PlayfabDataManager.bestScore);
-    }
 
     private void Start() {
         loginButton.onClick.AddListener(OnclickLoginWithEmail);
@@ -79,6 +76,7 @@ public class PlayfabAuthenticator: MonoBehaviour
         playfabID = result.PlayFabId;
         PlayfabDataManager.GetUserData(playfabID);
         loginPanel.SetActive(false);
+        
     }
     #endregion
 
@@ -114,6 +112,7 @@ public class PlayfabAuthenticator: MonoBehaviour
         playfabID = result.PlayFabId;
         PlayfabDataManager.GetUserData(playfabID);
         loginPanel.SetActive(false);
+
     }
 
     private void RegisterFailed(PlayFabError error)

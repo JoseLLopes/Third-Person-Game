@@ -10,6 +10,8 @@ namespace ThirdPersonGame.NetworkSystem{
 
         //ROOM
         public event Action OnJoinedRoomEvent;
+        public event Action OnLeftRoomEvent;
+
 
         public void ConnectToServer(){
             PhotonNetwork.ConnectUsingSettings();
@@ -33,6 +35,7 @@ namespace ThirdPersonGame.NetworkSystem{
         public override void OnJoinedLobby(){
             if(OnConnectedToLobbyEvent != null)
                 OnConnectedToLobbyEvent();
+            
         }
 
 
@@ -50,6 +53,12 @@ namespace ThirdPersonGame.NetworkSystem{
             if(OnJoinedRoomEvent != null)
                 OnJoinedRoomEvent();
         }
+
+        public override void OnLeftRoom(){
+            if(OnLeftRoomEvent != null)
+                OnLeftRoomEvent();
+        }
+
         #endregion
 
     }

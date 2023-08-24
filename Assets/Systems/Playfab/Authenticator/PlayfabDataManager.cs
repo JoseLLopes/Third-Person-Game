@@ -10,9 +10,13 @@ namespace ThirdPersonGame.Playfab.Data{
     public class PlayfabDataManager
     {
 
+        public static event Action OnGetData;
+        public static event Action OnSetData;
         public static string bestScore;
 
         public static void SetUserData() {
+            if(OnSetData != null)
+                OnSetData();
             PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest() {
                 Data = new Dictionary<string, string>() {
                     {"BestScore", bestScore}
@@ -40,7 +44,10 @@ namespace ThirdPersonGame.Playfab.Data{
                 bestScore = result.Data["BestScore"].Value;
             }else{
                 bestScore = "0";
+
             }
+            if(OnGetData != null)
+                OnGetData();
         }
         private static void OnGetDataFailed(PlayFabError error)
         {

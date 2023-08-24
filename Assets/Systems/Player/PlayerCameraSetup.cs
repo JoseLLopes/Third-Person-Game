@@ -11,6 +11,7 @@ public class PlayerCameraSetup : MonoBehaviour
     [SerializeField] Transform cameraLookAt;
 
     private void Start() {
+        
         var playerCamObj = FindObjectOfType<CinemachineCollider>();
         Debug.Log(playerCamObj.gameObject.name);
         CinemachineFreeLook cinemachineFreeLook = playerCamObj.GetComponent<CinemachineFreeLook>();
