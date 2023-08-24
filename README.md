@@ -1,5 +1,8 @@
 # Third-Person-Game
 
+## versão Unity
+- 2021.3.19
+
 ## Controles
 
 - Teclas __W,A,S,D__ para controlar o personagem;
