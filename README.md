@@ -1,7 +1,12 @@
 # Third-Person-Game
 
 ## versão Unity
+
 - 2021.3.19
+
+## Build
+
+- Uma build foi lançada aqui no GitHub na parte de releases está em __.rar__
 
 ## Controles
 
