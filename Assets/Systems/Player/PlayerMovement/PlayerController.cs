@@ -87,16 +87,20 @@ namespace ThirdPersonGame.PlayerMovement{
         //JUMP
         private void HandleHoldJump()
         {
-            isChargingJump = false;
-            Vector3 jumpVelocity = new Vector3(0,transform.up.y,0) * currentJumpForce;
-            myRigidbody.AddForce(jumpVelocity, ForceMode.VelocityChange);
+            if(Mathf.Abs(myRigidbody.velocity.y) < 0.1f){
+                isChargingJump = false;
+                Vector3 jumpVelocity = new Vector3(0,transform.up.y,0) * currentJumpForce;
+                myRigidbody.AddForce(jumpVelocity, ForceMode.VelocityChange);
+            }
             
         }
 
         private void HandleChargeJump()
         {
-            isChargingJump = true;
-            currentJumpForce = jumpMinForce;
+            if(Mathf.Abs(myRigidbody.velocity.y) < 0.1f){
+                isChargingJump = true;
+                currentJumpForce = jumpMinForce;
+            }
             
         }
 

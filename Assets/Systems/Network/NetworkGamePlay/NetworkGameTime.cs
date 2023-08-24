@@ -53,7 +53,6 @@ public class NetworkGameTime : MonoBehaviour
 
     [PunRPC]
     void RPC_UpdateTime(float time){
-            Debug.Log(time);
             GameplayController.Instance.UpdateTimeUI(time);
         }
 }
