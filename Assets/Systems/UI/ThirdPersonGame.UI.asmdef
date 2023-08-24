@@ -2,7 +2,8 @@
     "name": "ThirdPersonGame.UI",
     "rootNamespace": "",
     "references": [
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:9c0f030c4776eb0469e10b2b364db838"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -16,6 +16,7 @@ public class PlayerCameraSetup : MonoBehaviour
         CinemachineFreeLook cinemachineFreeLook = playerCamObj.GetComponent<CinemachineFreeLook>();
         cinemachineFreeLook.Follow = cameraFollow;
         cinemachineFreeLook.LookAt = cameraLookAt;
+        Camera.main.gameObject.SetActive(true);
         gameObject.GetComponent<PlayerController>().playerCamera = Camera.main.transform;
     }
 }
